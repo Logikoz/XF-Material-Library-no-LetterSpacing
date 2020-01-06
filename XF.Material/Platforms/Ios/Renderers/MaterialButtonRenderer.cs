@@ -1,18 +1,23 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
+
 using CoreAnimation;
+
 using CoreGraphics;
+
 using Foundation;
+
 using UIKit;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
+
 using XF.Material.Forms.UI;
 using XF.Material.iOS.Delegates;
 using XF.Material.iOS.Renderers;
 
 [assembly: ExportRenderer(typeof(MaterialButton), typeof(MaterialButtonRenderer))]
-
 namespace XF.Material.iOS.Renderers
 {
     public class MaterialButtonRenderer : ButtonRenderer
@@ -71,7 +76,7 @@ namespace XF.Material.iOS.Renderers
 
                 if (_materialButton != null)
                 {
-                    _withIcon = _materialButton.Image != null;
+                    _withIcon = _materialButton.ImageSource != null;
 
                     if (_materialButton.AllCaps)
                     {
@@ -118,7 +123,7 @@ namespace XF.Material.iOS.Renderers
                     await UpdateBackgroundColor();
                     break;
 
-                case nameof(MaterialButton.Image):
+                case nameof(MaterialButton.ImageSource):
                     SetupIcon();
                     UpdateButtonLayer();
                     break;
@@ -129,10 +134,6 @@ namespace XF.Material.iOS.Renderers
 
                 case nameof(MaterialButton.CornerRadius):
                     UpdateCornerRadius();
-                    break;
-
-                case nameof(MaterialButton.LetterSpacing):
-                    UpdateText();
                     break;
 
                 case nameof(MaterialButton.Text):
@@ -519,9 +520,7 @@ namespace XF.Material.iOS.Renderers
             text = _materialButton.AllCaps ? text?.ToUpper() : text;
             Control.TitleLabel.Text = text;
 
-            var range = new NSRange(0, text?.Length ?? 0);
             var newAttr = new NSMutableAttributedString(Control.TitleLabel.AttributedText);
-            newAttr.AddAttribute(UIStringAttributeKey.KerningAdjustment, FromObject((float)_materialButton.LetterSpacing), range);
 
             Control.SetAttributedTitle(newAttr, UIControlState.Normal);
         }

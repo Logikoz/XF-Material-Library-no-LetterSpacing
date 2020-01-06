@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
+
 using MaterialMvvmSample.ViewModels;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+
 using XF.Material.Forms.UI.Dialogs;
 
 namespace MaterialMvvmSample.Views
@@ -17,14 +20,14 @@ namespace MaterialMvvmSample.Views
             InitializeComponent();
             BindingContext = new MaterialDialogsViewModel();
 
-            this.Opendialog.Clicked += Opendialog_Clicked;
-            this.OpenSimpleDialog.Clicked += OpenSimpleDialog_Clicked;
+            Opendialog.Clicked += Opendialog_Clicked;
+            OpenSimpleDialog.Clicked += OpenSimpleDialog_Clicked;
             OpenConfirmDialog();
 
             MaterialDailogMultipleMessage();
         }
 
-        private async Task MaterialDailogMultipleMessage()
+        private async void MaterialDailogMultipleMessage()
         {
             using (var dialog = await MaterialDialog.Instance.LoadingDialogAsync(message: "Something is running"))
             {
@@ -38,8 +41,7 @@ namespace MaterialMvvmSample.Views
             };
         }
 
-
-        private async Task OpenConfirmDialog()
+        private async void OpenConfirmDialog()
         {
             await MaterialDialog.Instance.ConfirmAsync(message: "Do you want to sign in?",
                                                          confirmingText: "Sign In");

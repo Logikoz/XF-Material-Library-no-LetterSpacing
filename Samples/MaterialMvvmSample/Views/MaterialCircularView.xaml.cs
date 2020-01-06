@@ -16,7 +16,7 @@ namespace MaterialMvvmSample.Views
             RunLoadingDialog();
         }
 
-        public async Task RunLoadingDialog()
+        public async void RunLoadingDialog()
         {
             var loadingDialog = await MaterialDialog.Instance.LoadingDialogAsync(message: "Something is running", lottieAnimation: "LottieLogo1.json");
             await Task.Delay(5000); // Represents a task that is running.

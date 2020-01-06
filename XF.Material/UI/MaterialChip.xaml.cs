@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -104,41 +105,48 @@ namespace XF.Material.Forms.UI
                     case nameof(Text):
                         ChipLabel.Text = Text;
                         break;
+
                     case nameof(FontSize):
                         ChipLabel.FontSize = FontSize;
                         break;
+
                     case nameof(ActionImageTintColor):
                         ChipActionImage.TintColor = ActionImageTintColor;
                         break;
+
                     case nameof(ImageTintColor):
                         ChipImage.TintColor = ImageTintColor;
                         break;
+
                     case nameof(TextColor):
                         ChipLabel.TextColor = TextColor;
                         break;
+
                     case nameof(FontFamily):
                         ChipLabel.FontFamily = FontFamily;
                         break;
+
                     case nameof(Image):
                         ChipImageContainer.IsVisible = Image != null;
                         ChipImage.Source = Image;
                         break;
+
                     case nameof(ActionImage):
+                    {
+                        ChipActionImage.Source = ActionImage;
+                        ChipActionImage.IsVisible = ActionImage != null;
+
+                        if (ActionImage != null && ChipActionImage.GestureRecognizers.Count <= 0)
                         {
-                            ChipActionImage.Source = ActionImage;
-                            ChipActionImage.IsVisible = ActionImage != null;
-
-                            if (ActionImage != null && ChipActionImage.GestureRecognizers.Count <= 0)
-                            {
-                                ChipActionImage.GestureRecognizers.Add(new TapGestureRecognizer { Command = new Command(ActionImageTapHandled, () => !_canExecute), NumberOfTapsRequired = 1 });
-                            }
-                            else if (ActionImage == null)
-                            {
-                                ChipActionImage.GestureRecognizers.Clear();
-                            }
-
-                            break;
+                            ChipActionImage.GestureRecognizers.Add(new TapGestureRecognizer { Command = new Command(ActionImageTapHandled, () => !_canExecute), NumberOfTapsRequired = 1 });
                         }
+                        else if (ActionImage == null)
+                        {
+                            ChipActionImage.GestureRecognizers.Clear();
+                        }
+
+                        break;
+                    }
                 }
             }
         }

@@ -24,11 +24,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaterialMvvmSample.Android"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaterialMvvmSample.iOS", "Samples\MaterialMvvmSample.iOS\MaterialMvvmSample.iOS.csproj", "{8DFEFB5E-6594-4FFA-B7C2-D3AEBB98DD70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaterialMvvmSample", "Samples\MaterialMvvmSample\MaterialMvvmSample.csproj", "{AADF2788-B233-4EA1-9A3C-77AF05508226}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MaterialMvvmSample", "Samples\MaterialMvvmSample\MaterialMvvmSample.csproj", "{AADF2788-B233-4EA1-9A3C-77AF05508226}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaterialMvvmSample.Core", "Samples\MaterialMvvmSample.Core\MaterialMvvmSample.Core.csproj", "{B4880A99-7161-48B8-8EAB-2054127142AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MaterialMvvmSample.Core", "Samples\MaterialMvvmSample.Core\MaterialMvvmSample.Core.csproj", "{B4880A99-7161-48B8-8EAB-2054127142AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XF.Material", "XF.Material\XF.Material.csproj", "{716C39E8-557F-4E2B-9B88-217E4C0EC5AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XF.Material", "XF.Material\XF.Material.csproj", "{716C39E8-557F-4E2B-9B88-217E4C0EC5AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

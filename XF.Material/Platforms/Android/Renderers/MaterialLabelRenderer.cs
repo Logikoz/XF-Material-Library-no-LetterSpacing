@@ -1,13 +1,14 @@
 ﻿using System.ComponentModel;
+
 using Android.Content;
-using Android.Widget;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
+
 using XF.Material.Droid.Renderers;
 using XF.Material.Forms.UI;
 
 [assembly: ExportRenderer(typeof(MaterialLabel), typeof(MaterialLabelRenderer))]
-
 namespace XF.Material.Droid.Renderers
 {
     public class MaterialLabelRenderer : LabelRenderer
@@ -24,30 +25,11 @@ namespace XF.Material.Droid.Renderers
             {
                 return;
             }
-
-            OnLetterSpacingChanged(Control, Element.LetterSpacing);
         }
 
         protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             base.OnElementPropertyChanged(sender, e);
-
-            switch (e?.PropertyName)
-            {
-                case nameof(MaterialLabel.LetterSpacing):
-                    OnLetterSpacingChanged(Control, Element.LetterSpacing);
-                    break;
-            }
-        }
-
-        private void OnLetterSpacingChanged(TextView textView, double letterSpacing)
-        {
-            if (!Material.IsLollipop)
-            {
-                return;
-            }
-
-            textView.LetterSpacing = MaterialHelper.ConvertToSp(letterSpacing) / textView.TextSize;
         }
     }
 }

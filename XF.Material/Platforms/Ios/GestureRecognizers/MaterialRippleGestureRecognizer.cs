@@ -74,7 +74,7 @@ namespace XF.Material.iOS.GestureRecognizers
         }
 
         [Export("gestureRecognizer:shouldReceiveTouch:")]
-        public bool ShouldReceiveTouch(UIGestureRecognizer recognizer, UITouch touch)
+        public new bool ShouldReceiveTouch(UIGestureRecognizer recognizer, UITouch touch)
         {
             return !(touch.View is UIButton);
         }

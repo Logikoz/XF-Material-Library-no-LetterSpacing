@@ -1,7 +1,9 @@
 ﻿using System.Linq;
 using System.Runtime.CompilerServices;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
+
 using XF.Material.Forms.Resources;
 
 namespace XF.Material.Forms.UI
@@ -24,8 +26,6 @@ namespace XF.Material.Forms.UI
         public static readonly BindableProperty DisabledBackgroundColorProperty = BindableProperty.Create(nameof(DisabledBackgroundColor), typeof(Color), typeof(MaterialButton), default(Color));
 
         public static readonly BindableProperty PressedBackgroundColorProperty = BindableProperty.Create(nameof(PressedBackgroundColor), typeof(Color), typeof(MaterialButton), default(Color));
-
-        public static readonly BindableProperty LetterSpacingProperty = BindableProperty.Create(nameof(LetterSpacing), typeof(double), typeof(MaterialButton), 1.25);
 
         public static readonly BindableProperty ElevationProperty = BindableProperty.Create(nameof(Elevation), typeof(MaterialElevation), typeof(MaterialButton), new MaterialElevation(2, 8));
 
@@ -56,15 +56,6 @@ namespace XF.Material.Forms.UI
         {
             get => (bool)GetValue(AllCapsProperty);
             set => SetValue(AllCapsProperty, value);
-        }
-
-        /// <summary>
-        /// Gets or sets the letter spacing of this button's text.
-        /// </summary>
-        public double LetterSpacing
-        {
-            get => (double)GetValue(LetterSpacingProperty);
-            set => SetValue(LetterSpacingProperty, value);
         }
 
         /// <summary>
@@ -112,6 +103,7 @@ namespace XF.Material.Forms.UI
                     case nameof(ButtonType):
                         ButtonTypeChanged(ButtonType);
                         break;
+
                     case nameof(Style):
                         SetStyleValues(Style);
                         break;

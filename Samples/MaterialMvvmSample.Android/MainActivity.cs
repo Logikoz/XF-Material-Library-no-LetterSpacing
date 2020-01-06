@@ -1,6 +1,8 @@
 ﻿using Android.App;
 using Android.OS;
+
 using MaterialMvvmSample.Droid.Core;
+
 using XF.Material.Droid;
 
 namespace MaterialMvvmSample.Droid

@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+
 using XF.Material.Forms.Resources;
 using XF.Material.Forms.UI.Internals;
 
@@ -75,10 +77,7 @@ namespace XF.Material.Forms.UI
         private const double AnimationDuration = 0.35;
         private readonly Easing _animationCurve = Easing.SinOut;
         private readonly Dictionary<string, Action> _propertyChangeActions;
-        private readonly IList<string> _choices;
-        private readonly bool _counterEnabled;
         private DisplayInfo _lastDeviceDisplay;
-        private readonly int _selectedIndex = -1;
         private bool _wasFocused;
 
         /// <summary>
@@ -99,8 +98,6 @@ namespace XF.Material.Forms.UI
             DeviceDisplay.MainDisplayInfoChanged += DeviceDisplay_MainDisplayInfoChanged;
             _lastDeviceDisplay = DeviceDisplay.MainDisplayInfo;
         }
-
-        public event EventHandler<SelectedItemChangedEventArgs> ChoiceSelected;
 
         /// <summary>
         /// Raised when this text field receives focus.
@@ -965,7 +962,6 @@ namespace XF.Material.Forms.UI
             Unfocused?.Invoke(this, e);
         }
 
-
         private void OnAlwaysShowUnderlineChanged(bool isShown)
         {
             persistentUnderline.IsVisible = isShown;
@@ -976,7 +972,6 @@ namespace XF.Material.Forms.UI
         {
             backgroundCard.BackgroundColor = backgroundColor;
         }
-
 
         private void OnEnabledChanged(bool isEnabled)
         {

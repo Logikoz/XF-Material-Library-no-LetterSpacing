@@ -1,15 +1,18 @@
 ﻿using System.ComponentModel;
 using System.Linq;
+
 using Android.Content;
 using Android.Content.Res;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
+
 using XF.Material.Droid.Renderers;
 using XF.Material.Forms.UI;
+
 using Button = Xamarin.Forms.Button;
 
 [assembly: ExportRenderer(typeof(MaterialButton), typeof(MaterialButtonRenderer))]
-
 namespace XF.Material.Droid.Renderers
 {
     public sealed class MaterialButtonRenderer : Xamarin.Forms.Platform.Android.AppCompat.ButtonRenderer
@@ -21,6 +24,7 @@ namespace XF.Material.Droid.Renderers
         {
         }
 
+        [System.Obsolete]
         protected override void OnElementChanged(ElementChangedEventArgs<Button> e)
         {
             base.OnElementChanged(e);
@@ -49,9 +53,9 @@ namespace XF.Material.Droid.Renderers
 
             SetButtonIcon();
             SetTextColors();
-            SetTextLetterSpacing();
         }
 
+        [System.Obsolete]
         protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             base.OnElementPropertyChanged(sender, e);
@@ -63,21 +67,21 @@ namespace XF.Material.Droid.Renderers
 
             switch (e?.PropertyName)
             {
-                case nameof(MaterialButton.Image):
+                case nameof(MaterialButton.ImageSource):
                     SetButtonIcon();
                     break;
+
                 case nameof(MaterialButton.AllCaps):
                     Control.SetAllCaps(_materialButton.AllCaps);
                     break;
+
                 case nameof(Button.TextColor):
                     SetTextColors();
-                    break;
-                case nameof(MaterialButton.LetterSpacing):
-                    SetTextLetterSpacing();
                     break;
             }
         }
 
+        [System.Obsolete]
         private void SetButtonIcon()
         {
             var withIcon = !string.IsNullOrEmpty(_materialButton.Image);
@@ -126,12 +130,6 @@ namespace XF.Material.Droid.Renderers
              };
 
             Control.SetTextColor(new ColorStateList(states, colors));
-        }
-
-        private void SetTextLetterSpacing()
-        {
-            var rawLetterSpacing = _materialButton.LetterSpacing / Control.TextSize;
-            Control.LetterSpacing = MaterialHelper.ConvertToSp(rawLetterSpacing);
         }
     }
 }
