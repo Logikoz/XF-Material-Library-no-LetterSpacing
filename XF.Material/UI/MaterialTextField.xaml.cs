@@ -6,9 +6,11 @@ using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows.Input;
+
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+
 using XF.Material.Forms.Resources;
 using XF.Material.Forms.UI.Dialogs;
 using XF.Material.Forms.UI.Internals;
@@ -132,6 +134,8 @@ namespace XF.Material.Forms.UI
 
         public static readonly BindableProperty UnderlineColorProperty = BindableProperty.Create(nameof(UnderlineColor), typeof(Color), typeof(MaterialTextField), Color.FromHex("#99000000"));
 
+        public static readonly BindableProperty TitleProperty = BindableProperty.Create(nameof(Title), typeof(string), typeof(MaterialTextField), "Title msg here");
+
         //public static readonly BindableProperty ChoicesBindingNameProperty = BindableProperty.Create(nameof(Text), typeof(string), typeof(MaterialTextField), string.Empty, BindingMode.TwoWay);
 
         private const double AnimationDuration = 0.35;
@@ -209,11 +213,9 @@ namespace XF.Material.Forms.UI
             set => SetValue(SelectedChoiceProperty, value);
         }
 
-
         /// <summary>
         /// Gets or sets the name of the property to display of each object in the <see cref="Choices"/> property. This will be ignored if the objects are strings.
         /// </summary>
-
 
         /// <summary>
         /// Gets or sets the command that will execute if a choice was selected when the <see cref="InputType"/> is set to <see cref="MaterialTextFieldInputType.Choice"/>.
@@ -484,8 +486,6 @@ namespace XF.Material.Forms.UI
         //    set => this.SetValue(ChoicesBindingNameProperty, value);
         //}
 
-
-
         /// <summary>
         /// Gets or sets the input text of this text field.
         /// </summary>
@@ -560,6 +560,12 @@ namespace XF.Material.Forms.UI
         {
             get => (Color)GetValue(UnderlineColorProperty);
             set => SetValue(UnderlineColorProperty, value);
+        }
+
+        public string Title
+        {
+            get => (string)GetValue(TitleProperty);
+            set => SetValue(TitleProperty, value);
         }
 
         /// <inheritdoc />
@@ -1242,7 +1248,6 @@ namespace XF.Material.Forms.UI
             }
             _choices = GetChoices();
 
-            var title = MaterialConfirmationDialog.GetDialogTitle(this);
             var confirmingText = MaterialConfirmationDialog.GetDialogConfirmingText(this);
             var dismissiveText = MaterialConfirmationDialog.GetDialogDismissiveText(this);
             var configuration = MaterialConfirmationDialog.GetDialogConfiguration(this);
@@ -1250,11 +1255,11 @@ namespace XF.Material.Forms.UI
 
             if (_selectedIndex >= 0)
             {
-                result = await MaterialDialog.Instance.SelectChoiceAsync(title, _choices, _selectedIndex, confirmingText, dismissiveText, configuration);
+                result = await MaterialDialog.Instance.SelectChoiceAsync(Title, _choices, _selectedIndex, confirmingText, dismissiveText, configuration);
             }
             else
             {
-                result = await MaterialDialog.Instance.SelectChoiceAsync(title, _choices, confirmingText, dismissiveText, configuration);
+                result = await MaterialDialog.Instance.SelectChoiceAsync(Title, _choices, confirmingText, dismissiveText, configuration);
             }
 
             if (result >= 0)
@@ -1287,7 +1292,6 @@ namespace XF.Material.Forms.UI
             }
 
             entry.Text = text;
-
 
             AnimateToInactiveOrFocusedStateOnStart(this);
             UpdateCounter();

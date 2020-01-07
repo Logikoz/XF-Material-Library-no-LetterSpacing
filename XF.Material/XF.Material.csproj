@@ -19,10 +19,13 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <NeutralLanguage>pt-BR</NeutralLanguage>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.5.8</Version>
+    <Version>1.5.8.1</Version>
     <PackageProjectUrl>https://github.com/Logikoz/XF-Material-Library-no-LetterSpacing</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Logikoz/XF-Material-Library-no-LetterSpacing</RepositoryUrl>
     <PackageReleaseNotes>https://github.com/Logikoz/XF-Material-Library-no-LetterSpacing/releases</PackageReleaseNotes>
+    <Copyright>Copyright (c) Martijn van Dijk</Copyright>
+    <Company />
+    <Authors>Logikoz</Authors>
   </PropertyGroup>
   
   <ItemGroup>

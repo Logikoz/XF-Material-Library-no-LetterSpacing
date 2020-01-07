@@ -162,6 +162,7 @@ namespace XF.Material.Forms.UI.Dialogs
         /// <param name="title">The title of the dialog.</param>
         /// <param name="confirmingText">The text of the confirmation button.</param>
         /// <param name="dismissiveText">The text of the dismissive button</param>
+        /// <param name="configuration">Configuration for AlertDialog.</param>
         /// <exception cref="ArgumentNullException" />
         Task<bool?> ShowCustomContentAsync(View view, string message, string title = null, string confirmingText = "Ok", string dismissiveText = "Cancel", MaterialAlertDialogConfiguration configuration = null);
 
